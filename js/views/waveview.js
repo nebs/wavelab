@@ -28,7 +28,11 @@ function WaveView(container, wave) {
       this.canvas.height = MAX_SAMPLE_VALUE;
 
       var thisWaveView = this;
+      var prevX = 0;
+      var prevY = 0;
       this.canvas.addEventListener("mousedown", function(e) {
+        prevX = e.clientX - thisWaveView.canvas.offsetLeft;
+        prevY = e.clientY - thisWaveView.canvas.offsetTop;
         thisWaveView.isDragging = true;
       }, false);
       this.canvas.addEventListener("mouseup", function(e) {
@@ -38,8 +42,23 @@ function WaveView(container, wave) {
         if (!thisWaveView.isDragging) { return; }
         currX = e.clientX - thisWaveView.canvas.offsetLeft;
         currY = e.clientY - thisWaveView.canvas.offsetTop;
+
+        var y1 = MAX_SAMPLE_VALUE - prevY;
+        var y2 = MAX_SAMPLE_VALUE - currY;
+        var dX = Math.abs(prevX - currX);
+        var dY = Math.abs(y1 - y2);
+        if (dX > 1) {
+          for (var i=0; i<dX; i++) {
+            var factor = i / dX;
+            var y = y2 < y1 ? (y2 + dY*factor) : (y2 - dY*factor);
+            var x = currX > prevX ? currX - i : currX + i;
+            thisWaveView.wave.setSampleAtIndex(y, x);
+          }
+        }
         thisWaveView.wave.setSampleAtIndex(MAX_SAMPLE_VALUE - currY, currX);
         thisWaveView.refresh();
+        prevX = currX;
+        prevY = currY;
       }, false);
 
       this.ctx = this.canvas.getContext("2d");
