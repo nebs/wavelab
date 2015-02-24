@@ -1,0 +1,63 @@
+function WaveView(container, wave) {
+  this.container = container;
+  this.wave = wave;
+  this.wavetableContainer = null;
+  this.ctx = null;
+  this.canvas = null;
+  this.textArea = null;
+  this.isDragging = false;
+  this.nameSpan = null;
+
+  this.refresh = function() {
+    if (!this.wavetableContainer) {
+      this.wavetableContainer = document.createElement("div");
+      this.wavetableContainer.className = "wavetable";
+      this.container.appendChild(this.wavetableContainer);
+      this.wavetableContainer.innerHTML = "";
+
+      this.nameSpan = document.createElement("span");
+      this.wavetableContainer.appendChild(this.nameSpan);
+      this.nameSpan.className = "name";
+
+      this.textArea = document.createElement("textarea");
+      this.wavetableContainer.appendChild(this.textArea);
+
+      this.canvas = document.createElement("canvas");
+      this.wavetableContainer.appendChild(this.canvas);
+      this.canvas.width = SAMPLES_PER_WAVE;
+      this.canvas.height = MAX_SAMPLE_VALUE;
+
+      var thisWaveView = this;
+      this.canvas.addEventListener("mousedown", function(e) {
+        thisWaveView.isDragging = true;
+      }, false);
+      this.canvas.addEventListener("mouseup", function(e) {
+        thisWaveView.isDragging = false;
+      }, false);
+      this.canvas.addEventListener("mousemove", function(e) {
+        if (!thisWaveView.isDragging) { return; }
+        currX = e.clientX - thisWaveView.canvas.offsetLeft;
+        currY = e.clientY - thisWaveView.canvas.offsetTop;
+        thisWaveView.wave.setSampleAtIndex(MAX_SAMPLE_VALUE - currY, currX);
+        thisWaveView.refresh();
+      }, false);
+
+      this.ctx = this.canvas.getContext("2d");
+    }
+
+    this.textArea.innerHTML = this.wave.print(16);
+    this.nameSpan.innerHTML = this.wave.title;
+    this.plotGraph();
+  }
+
+  this.plotGraph = function() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.beginPath();
+    this.ctx.strokeStyle = '#0000ff';
+    for (var i=0; i<this.wave.samples.length; i++) {
+      var val = MAX_SAMPLE_VALUE - this.wave.samples[i];
+      i == 0 ? this.ctx.moveTo(i, val) : this.ctx.lineTo(i, val);
+    }
+    this.ctx.stroke();
+  }
+}
