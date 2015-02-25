@@ -1,6 +1,6 @@
 function WaveFactory() {
-  this.emptyWave = function() {
-    var wave = new Wave("Empty");
+  this.customWave = function() {
+    var wave = new Wave("Custom");
     wave.clear();
     return wave;
   }
@@ -66,41 +66,6 @@ function WaveFactory() {
     var wave = new Wave("White Noise");
     wave.fill(function(x) {
       return Math.floor(Math.random()  * MAX_SAMPLE_VALUE);
-    });
-    return wave;
-  }
-
-  this.custom1Wave = function() {
-    var offsetY1 = (MAX_SAMPLE_VALUE / 2) - 1;
-    var offsetY2 = offsetY1 / 4;
-    var offsetY3 = offsetY1 / 8;
-    var offsetY4 = offsetY1 / 16;
-    var offsetY5 = offsetY1 / 32;
-    var halfY = MAX_SAMPLE_VALUE / 2;
-    var wave = new Wave("Custom 1");
-    wave.fill(function(x) {
-      var val = Math.floor(offsetY1 * Math.sin(x/halfY * Math.PI));
-      val += Math.floor(offsetY2 * Math.sin(3 * x/halfY * Math.PI));
-      val += Math.floor(offsetY3 * Math.sin(5 * x/halfY * Math.PI));
-      val += Math.floor(offsetY4 * Math.sin(7 * x/halfY * Math.PI));
-      val += Math.floor(offsetY5 * Math.sin(9 * x/halfY * Math.PI));
-      val += halfY;
-      return val;
-    });
-    return wave;
-  }
-
-  this.custom2Wave = function() {
-    var halfY = MAX_SAMPLE_VALUE / 2;
-    var amplitude = halfY - 1;
-    var wave = new Wave("Custom 2");
-    wave.fill(function(x) {
-      var sinx = Math.sin(x/halfY * Math.PI);
-      var sin3x = Math.sin(3*x/halfY * Math.PI);
-      var val = ((3 * sinx) - sin3x) / 4;
-      val *= amplitude;
-      val += halfY;
-      return val;
     });
     return wave;
   }

@@ -9,8 +9,8 @@ window.onload = function() {
   var waveFactory = new WaveFactory();
   var container = document.getElementById("wavepool");
 
-  document.getElementById("add-empty").addEventListener("click", function(e) {
-    addWave(waveFactory.emptyWave(), container);
+  document.getElementById("add-custom").addEventListener("click", function(e) {
+    addWave(waveFactory.customWave(), container);
   });
 
   document.getElementById("add-sine").addEventListener("click", function(e) {
@@ -31,14 +31,6 @@ window.onload = function() {
 
   document.getElementById("add-white-noise").addEventListener("click", function(e) {
     addWave(waveFactory.whiteNoiseWave(), container);
-  });
-
-  document.getElementById("add-custom-1").addEventListener("click", function(e) {
-    addWave(waveFactory.custom1Wave(), container);
-  });
-
-  document.getElementById("add-custom-2").addEventListener("click", function(e) {
-    addWave(waveFactory.custom2Wave(), container);
   });
 
   document.getElementById("export").addEventListener("click", function(e) {
