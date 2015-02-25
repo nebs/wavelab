@@ -1,11 +1,33 @@
 window.onload = function() {
   var waveFactory = new WaveFactory();
+  var container = document.getElementById("wavepool");
 
-  new WaveView(document.body, waveFactory.sineWave()).refresh();
-  new WaveView(document.body, waveFactory.sawWave()).refresh();
-  new WaveView(document.body, waveFactory.triangleWave()).refresh();
-  new WaveView(document.body, waveFactory.squareWave()).refresh();
-  new WaveView(document.body, waveFactory.whiteNoiseWave()).refresh();
-  new WaveView(document.body, waveFactory.custom1Wave()).refresh();
-  new WaveView(document.body, waveFactory.custom2Wave()).refresh();
+  document.getElementById("add-sine").addEventListener("click", function(e) {
+    new WaveView(container, waveFactory.sineWave()).refresh();
+  });
+
+  document.getElementById("add-square").addEventListener("click", function(e) {
+    new WaveView(container, waveFactory.squareWave()).refresh();
+  });
+
+  document.getElementById("add-triangle").addEventListener("click", function(e) {
+    new WaveView(container, waveFactory.triangleWave()).refresh();
+  });
+
+  document.getElementById("add-saw").addEventListener("click", function(e) {
+    new WaveView(container, waveFactory.sawWave()).refresh();
+  });
+
+  document.getElementById("add-white-noise").addEventListener("click", function(e) {
+    new WaveView(container, waveFactory.whiteNoiseWave()).refresh();
+  });
+
+  document.getElementById("add-custom-1").addEventListener("click", function(e) {
+    new WaveView(container, waveFactory.custom1Wave()).refresh();
+  });
+
+  document.getElementById("add-custom-2").addEventListener("click", function(e) {
+    new WaveView(container, waveFactory.custom2Wave()).refresh();
+  });
 }
+
