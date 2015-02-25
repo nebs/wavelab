@@ -73,7 +73,7 @@ function WaveFactory() {
     var halfY = MAX_SAMPLE_VALUE / 2;
     var wave = new Wave("Custom 1");
     wave.fill(function(x) {
-      var val = Math.floor(offsetY1 * Math.sin(x/128 * Math.PI));
+      var val = Math.floor(offsetY1 * Math.sin(x/halfY * Math.PI));
       val += Math.floor(offsetY2 * Math.sin(3 * x/halfY * Math.PI));
       val += Math.floor(offsetY3 * Math.sin(5 * x/halfY * Math.PI));
       val += Math.floor(offsetY4 * Math.sin(7 * x/halfY * Math.PI));
