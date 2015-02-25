@@ -18,7 +18,7 @@ window.onload = function() {
   });
 
   document.getElementById("add-square").addEventListener("click", function(e) {
-    addWave(waveFactory.sawWave(), container);
+    addWave(waveFactory.squareWave(), container);
   });
 
   document.getElementById("add-triangle").addEventListener("click", function(e) {
