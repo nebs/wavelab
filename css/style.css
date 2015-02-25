@@ -6,7 +6,8 @@ body {
 
 .wavetable {
   float: left;
-  border: 1px solid #000;
+  border: 1px solid #ddd;
+  padding: .5em;
 }
 
 .wavetable textarea {

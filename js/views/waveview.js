@@ -37,7 +37,7 @@ function WaveView(container, wave) {
         prevY = e.clientY - thisWaveView.canvas.offsetTop;
         thisWaveView.isDragging = true;
       }, false);
-      this.canvas.addEventListener("mouseup", function(e) {
+      this.container.addEventListener("mouseup", function(e) {
         thisWaveView.isDragging = false;
       }, false);
       this.canvas.addEventListener("mousemove", function(e) {
