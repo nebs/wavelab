@@ -13,9 +13,7 @@ function Wave(title) {
   }
 
   this.setSampleAtIndex = function(sample, index) {
-    if (sample <  0 ||
-        sample >= MAX_SAMPLE_VALUE ||
-        index  <  0 ||
+    if (index  <  0 ||
         index  >= SAMPLES_PER_WAVE) {
       return;
     }

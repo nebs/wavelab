@@ -24,14 +24,24 @@ body {
   border-bottom: 1px solid #eee;
   padding: 1em;
   background: #fafafa;
+  overflow: hidden;
+}
+
+.menu .menu-item.menu-item-right {
+  background: #52539a;
+  color: #fff;
+  float: right;
+  margin-right: 0em;
 }
 
 .menu .menu-item {
+  float: left;
   background: #555;
   border: 0;
   color: #ddd;
   font-size: 14px;
   padding: .5em;
+  margin-right: .5em;
 }
 
 .menu .menu-item:hover {
@@ -65,7 +75,7 @@ body {
 .wavetable .name {
   width: 100%;
   display: inline-block;
-  background: #000;
+  background: #333;
   color: #fff;
   text-align: center;
   padding-top: .5em;
