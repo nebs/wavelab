@@ -5,7 +5,6 @@ function WaveView(container, wave) {
   this.ctx = null;
   this.canvas = null;
   this.isDragging = false;
-  this.nameSpan = null;
 
   this.refresh = function() {
     if (!this.wavetableContainer) {
@@ -14,10 +13,6 @@ function WaveView(container, wave) {
       this.container.appendChild(this.wavetableContainer);
       this.wavetableContainer.style.width = SAMPLES_PER_WAVE + "px";
       this.wavetableContainer.innerHTML = "";
-
-      this.nameSpan = document.createElement("span");
-      this.wavetableContainer.appendChild(this.nameSpan);
-      this.nameSpan.className = "name";
 
       this.canvas = document.createElement("canvas");
       this.wavetableContainer.appendChild(this.canvas);
@@ -61,7 +56,6 @@ function WaveView(container, wave) {
       this.ctx = this.canvas.getContext("2d");
     }
 
-    this.nameSpan.innerHTML = this.wave.title;
     this.plotGraph();
   }
 

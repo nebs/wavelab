@@ -1,6 +1,5 @@
-function Wave(title) {
+function Wave() {
   this.samples = new Array();
-  this.title = title;
 
   this.clear = function() {
     this.fill(function(x) { return 0; });

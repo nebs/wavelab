@@ -40,7 +40,7 @@ window.onload = function() {
     newWindow.document.body.appendChild(dataContainer);
     for (var i in waves) {
       var wave = waves[i];
-      dataContainer.innerHTML += "{ // " + wave.title + "\n";
+      dataContainer.innerHTML += "{\n";
       dataContainer.innerHTML += wave.print(16);
       dataContainer.innerHTML += "\n},\n";
     }

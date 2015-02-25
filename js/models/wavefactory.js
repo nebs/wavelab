@@ -1,6 +1,6 @@
 function WaveFactory() {
   this.customWave = function() {
-    var wave = new Wave("Custom");
+    var wave = new Wave();
     wave.clear();
     return wave;
   }
@@ -8,7 +8,7 @@ function WaveFactory() {
   this.sineWave = function() {
     var offsetY = MAX_SAMPLE_VALUE / 2;
     var maxAmplitude = offsetY - 1;
-    var wave = new Wave("Sine");
+    var wave = new Wave();
     wave.fill(function(x) {
       return offsetY + Math.floor(maxAmplitude * Math.sin(x/offsetY * Math.PI));
     });
@@ -19,7 +19,7 @@ function WaveFactory() {
     var maxY = MAX_SAMPLE_VALUE-1;
     var minY = 0;
     var halfX = SAMPLES_PER_WAVE / 2;
-    var wave = new Wave("Square");
+    var wave = new Wave();
     wave.fill(function(x) {
       if (x < halfX) {
         return maxY;
@@ -33,7 +33,7 @@ function WaveFactory() {
   this.sawWave = function() {
     var halfY = (MAX_SAMPLE_VALUE / 2) - 1;
     var halfX = SAMPLES_PER_WAVE / 2;
-    var wave = new Wave("Saw");
+    var wave = new Wave();
     wave.fill(function(x) {
       if (x < halfX) {
         return halfY + x;
@@ -49,7 +49,7 @@ function WaveFactory() {
     var q3x = q1x * 3;
     var a1 = (MAX_SAMPLE_VALUE / 2) - 1;
     var a2 = a1 * 3;
-    var wave = new Wave("Triangle");
+    var wave = new Wave();
     wave.fill(function(x) {
       if (x < q1x) {
         return a1 + (x * 2);
@@ -63,7 +63,7 @@ function WaveFactory() {
   }
 
   this.whiteNoiseWave = function() {
-    var wave = new Wave("White Noise");
+    var wave = new Wave();
     wave.fill(function(x) {
       return Math.floor(Math.random()  * MAX_SAMPLE_VALUE);
     });
