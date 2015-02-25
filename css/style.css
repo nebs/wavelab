@@ -68,10 +68,6 @@ body {
   background: #fafafa;
 }
 
-.wavetable textarea {
-  font-family: "courier new";
-}
-
 .wavetable .name {
   width: 100%;
   display: inline-block;
