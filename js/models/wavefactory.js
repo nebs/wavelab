@@ -1,4 +1,10 @@
 function WaveFactory() {
+  this.emptyWave = function() {
+    var wave = new Wave("Empty");
+    wave.clear();
+    return wave;
+  }
+
   this.sineWave = function() {
     var offsetY = MAX_SAMPLE_VALUE / 2;
     var maxAmplitude = offsetY - 1;

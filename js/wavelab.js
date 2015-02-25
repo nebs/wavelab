@@ -2,6 +2,10 @@ window.onload = function() {
   var waveFactory = new WaveFactory();
   var container = document.getElementById("wavepool");
 
+  document.getElementById("add-empty").addEventListener("click", function(e) {
+    new WaveView(container, waveFactory.emptyWave()).refresh();
+  });
+
   document.getElementById("add-sine").addEventListener("click", function(e) {
     new WaveView(container, waveFactory.sineWave()).refresh();
   });
