@@ -13,6 +13,7 @@ function WaveView(container, wave) {
       this.wavetableContainer = document.createElement("div");
       this.wavetableContainer.className = "wavetable";
       this.container.appendChild(this.wavetableContainer);
+      this.wavetableContainer.style.width = SAMPLES_PER_WAVE + "px";
       this.wavetableContainer.innerHTML = "";
 
       this.nameSpan = document.createElement("span");
@@ -21,6 +22,7 @@ function WaveView(container, wave) {
 
       this.textArea = document.createElement("textarea");
       this.wavetableContainer.appendChild(this.textArea);
+      this.textArea.style.width = SAMPLES_PER_WAVE + "px";
 
       this.canvas = document.createElement("canvas");
       this.wavetableContainer.appendChild(this.canvas);

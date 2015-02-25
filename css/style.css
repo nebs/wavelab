@@ -5,13 +5,11 @@ body {
 }
 
 .wavetable {
-  width: 256px;
   float: left;
   border: 1px solid #000;
 }
 
 .wavetable textarea {
-  width: 256px;
   font-family: "courier new";
 }
 
