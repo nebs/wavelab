@@ -27,11 +27,19 @@ body {
   overflow: hidden;
 }
 
-.menu .menu-item.menu-item-right {
+.menu .menu-item-right.menu-item-accent {
   background: #52539a;
+}
+
+.menu .menu-item-right.menu-item-danger {
+  background: #9a5352;
+}
+
+.menu .menu-item.menu-item-right {
   color: #fff;
   float: right;
   margin-right: 0em;
+  margin-left: .5em;
 }
 
 .menu .menu-item {

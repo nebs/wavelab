@@ -45,5 +45,9 @@ window.onload = function() {
       dataContainer.innerHTML += "\n},\n";
     }
   });
+
+  document.getElementById("clear").addEventListener("click", function(e) {
+    container.innerHTML = "";
+  });
 }
 
