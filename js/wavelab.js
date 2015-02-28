@@ -33,6 +33,10 @@ window.onload = function() {
     addWave(waveFactory.whiteNoiseWave(), container);
   });
 
+  document.getElementById("add-pseudo-square").addEventListener("click", function(e) {
+    addWave(waveFactory.pseudoSquareWave(), container);
+  });
+
   document.getElementById("export").addEventListener("click", function(e) {
     var newWindow = window.open();
     newWindow.document.write("<html><head><title>WaveLab - Export</title></head><body></body></html>");
