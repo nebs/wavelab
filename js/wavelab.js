@@ -48,6 +48,7 @@ window.onload = function() {
 
   document.getElementById("clear").addEventListener("click", function(e) {
     container.innerHTML = "";
+    waves = new Array();
   });
 }
 
