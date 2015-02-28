@@ -10,7 +10,7 @@ function WaveFactory() {
     var maxAmplitude = offsetY - 1;
     var wave = new Wave();
     wave.fill(function(x) {
-      return offsetY + Math.floor(maxAmplitude * Math.sin(x/offsetY * Math.PI));
+      return offsetY + maxAmplitude * Math.sin(x/offsetY * Math.PI);
     });
     return wave;
   }
@@ -65,7 +65,7 @@ function WaveFactory() {
   this.whiteNoiseWave = function() {
     var wave = new Wave();
     wave.fill(function(x) {
-      return Math.floor(Math.random()  * MAX_SAMPLE_VALUE);
+      return Math.random()  * MAX_SAMPLE_VALUE;
     });
     return wave;
   }
