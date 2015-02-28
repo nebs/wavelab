@@ -33,7 +33,7 @@ function WaveFactory() {
   this.sawWave = function() {
     var wave = new Wave();
     wave.fill(function(x) {
-      return MAX_SAMPLE_VALUE - x;
+      return MAX_SAMPLE_VALUE - 1 - x;
     });
     return wave;
   }
