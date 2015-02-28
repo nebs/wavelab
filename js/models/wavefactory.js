@@ -31,15 +31,9 @@ function WaveFactory() {
   }
 
   this.sawWave = function() {
-    var halfY = (MAX_SAMPLE_VALUE / 2) - 1;
-    var halfX = SAMPLES_PER_WAVE / 2;
     var wave = new Wave();
     wave.fill(function(x) {
-      if (x < halfX) {
-        return halfY + x;
-      } else {
-        return -halfY + x;
-      }
+      return MAX_SAMPLE_VALUE - x;
     });
     return wave;
   }
