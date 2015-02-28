@@ -99,4 +99,18 @@ function WaveFactory() {
     });
     return wave;
   }
+
+  this.pseudoSawWave = function() {
+    var wave = new Wave();
+    wave.fill(function(x) {
+      var A = 70;
+      var output = 128;
+      for (var i=0; i<8; i++) {
+        var factor = i + 1;
+        output += A/factor * Math.sin((x*factor)/128 * Math.PI);
+      }
+      return output;
+    });
+    return wave;
+  }
 }
