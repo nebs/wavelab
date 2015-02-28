@@ -37,6 +37,10 @@ window.onload = function() {
     addWave(waveFactory.pseudoSquareWave(), container);
   });
 
+  document.getElementById("add-pseudo-triangle").addEventListener("click", function(e) {
+    addWave(waveFactory.pseudoTriangleWave(), container);
+  });
+
   document.getElementById("export").addEventListener("click", function(e) {
     var newWindow = window.open();
     newWindow.document.write("<html><head><title>WaveLab - Export</title></head><body></body></html>");

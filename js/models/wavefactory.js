@@ -83,4 +83,20 @@ function WaveFactory() {
     });
     return wave;
   }
+
+  this.pseudoTriangleWave = function() {
+    var wave = new Wave();
+    wave.fill(function(x) {
+      var A = 105;
+      var output = 128;
+      for (var i=0; i<4; i++) {
+        var factor = (i * 2) + 1;
+        var scaler = (factor * factor);
+        scaler *= i % 2 == 0 ? 1 : -1;
+        output += A/scaler * Math.sin((x*factor)/128 * Math.PI);
+      }
+      return output;
+    });
+    return wave;
+  }
 }
