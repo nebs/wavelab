@@ -38,6 +38,7 @@ window.onload = function() {
     newWindow.document.write("<html><head><title>WaveLab - Export</title></head><body></body></html>");
     var dataContainer = document.createElement("pre");
     newWindow.document.body.appendChild(dataContainer);
+    dataContainer.innerHTML += "// " + waves.length + " waves\n";
     for (var i in waves) {
       var wave = waves[i];
       dataContainer.innerHTML += "{\n";
