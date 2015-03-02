@@ -45,6 +45,22 @@ window.onload = function() {
     addWave(waveFactory.pseudoSawWave(), container);
   });
 
+  document.getElementById("add-fast-exp-rise").addEventListener("click", function(e) {
+    addWave(waveFactory.fastExpRiseWave(), container);
+  });
+
+  document.getElementById("add-fast-exp-fall").addEventListener("click", function(e) {
+    addWave(waveFactory.fastExpFallWave(), container);
+  });
+
+  document.getElementById("add-slow-exp-rise").addEventListener("click", function(e) {
+    addWave(waveFactory.slowExpRiseWave(), container);
+  });
+
+  document.getElementById("add-slow-exp-fall").addEventListener("click", function(e) {
+    addWave(waveFactory.slowExpFallWave(), container);
+  });
+
   document.getElementById("export").addEventListener("click", function(e) {
     var newWindow = window.open();
     newWindow.document.write("<html><head><title>WaveLab - Export</title></head><body></body></html>");

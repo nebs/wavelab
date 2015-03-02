@@ -107,4 +107,36 @@ function WaveFactory() {
     });
     return wave;
   }
+
+  this.fastExpRiseWave = function() {
+    var wave = new Wave();
+    wave.fill(function(x) {
+      return (MAX_SAMPLE_VALUE-1) - (MAX_SAMPLE_VALUE-1) * Math.pow(2, -x/32);
+    });
+    return wave;
+  }
+
+  this.fastExpFallWave = function() {
+    var wave = new Wave();
+    wave.fill(function(x) {
+      return (MAX_SAMPLE_VALUE-1) * Math.pow(2, -x/32);
+    });
+    return wave;
+  }
+
+  this.slowExpRiseWave = function() {
+    var wave = new Wave();
+    wave.fill(function(x) {
+      return Math.pow(2, x/32);
+    });
+    return wave;
+  }
+
+  this.slowExpFallWave = function() {
+    var wave = new Wave();
+    wave.fill(function(x) {
+      return MAX_SAMPLE_VALUE-1-Math.pow(2, x/32);
+    });
+    return wave;
+  }
 }
